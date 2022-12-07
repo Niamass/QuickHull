@@ -5,17 +5,17 @@ void Solver::FindLeftRight(const std::vector<Point>& points, int& i_left, int& i
 	Point max = points[0], min = points[0];
 	i_right = 0;
 	i_left = 0;
-	for (int i = 0; i < points.size(); i++)
+	for (int i = 1; i < points.size(); i++)
 	{
 		if (points[i].x > max.x || points[i].x == max.x && points[i].y > max.y)
 		{
-			max.x = points[i].x;
+			max = points[i];
 			i_right = i;
 		}
 
 		if (points[i].x < min.x || points[i].x == min.x && points[i].y < min.y)
 		{
-			min.x = points[i].x;
+			min = points[i];
 			i_left = i;
 		}			
 	}
